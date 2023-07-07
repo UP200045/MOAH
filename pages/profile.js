@@ -52,14 +52,14 @@ export default function ProfileScreen() {
         <h1 className="mb-4 text-xl">Update Profile</h1>
 
         <div className="mb-4">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Nombre</label>
           <input
             type="text"
             className="w-full"
             id="name"
             autoFocus
             {...register('name', {
-              required: 'Please enter name',
+              required: 'Porfavor introduzca el nombre',
             })}
           />
           {errors.name && (
@@ -74,7 +74,7 @@ export default function ProfileScreen() {
             className="w-full"
             id="email"
             {...register('email', {
-              required: 'Please enter email',
+              required: 'Introduzca su correo',
               pattern: {
                 value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/i,
                 message: 'Please enter valid email',
@@ -87,13 +87,13 @@ export default function ProfileScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="password">New Password</label>
+          <label htmlFor="password">Nueva contraseña</label>
           <input
             className="w-full"
             type="password"
             id="password"
             {...register('password', {
-              required: 'Please enter new password',
+              required: 'Introduzca su nueva contraseña',
               minLength: { value: 6, message: 'password is more than 5 chars' },
             })}
           />
@@ -103,13 +103,13 @@ export default function ProfileScreen() {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="confirmPassword">Confirm New Password</label>
+          <label htmlFor="confirmPassword">Confirme la contraseña</label>
           <input
             className="w-full"
             type="password"
             id="confirmPassword"
             {...register('confirmPassword', {
-              required: 'Please confirm new password',
+              required: 'Confirme la contraseña',
               validate: (value) => value === getValues('password'),
               minLength: {
                 value: 6,
@@ -124,11 +124,11 @@ export default function ProfileScreen() {
           )}
           {errors.confirmPassword &&
             errors.confirmPassword.type === 'validate' && (
-              <div className="text-red-500 ">Password do not match</div>
+              <div className="text-red-500 ">Las contraseñas no coinciden</div>
             )}
         </div>
         <div className="mb-4">
-          <button className="primary-button">Update Profile</button>
+          <button className="primary-button">Actualizar perfil</button>
         </div>
       </form>
     </Layout>
